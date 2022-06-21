@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route, BrowserRouter as Router, Navigate } from "react-router-dom";
+import "./App.css";
+import { ContractPage } from "./pages/ContractPage";
+import { FormPage } from "./pages/FormPage";
+import { Main } from "./pages/Main";
+import { TablePage } from "./pages/TablePage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        fff
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="form" element={<FormPage />} />
+          <Route path="contract" element={<ContractPage />} />
+          <Route path="table" element={<TablePage />} />
+
+          <Route index element={<Navigate to="form" />}></Route>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
